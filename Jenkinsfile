@@ -22,6 +22,7 @@ parameters {
                     }
                 }
             }
+        }
         stage('Deploy') {
             when {
                 expression { env.GIT_BRANCH == 'origin/main' }
@@ -29,9 +30,7 @@ parameters {
             steps {
                 echo 'Deploying...'
             }
-            }
-            
-            }
+        }     
         }
     }
 
