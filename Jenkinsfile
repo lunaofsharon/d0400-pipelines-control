@@ -4,7 +4,9 @@ pipeline {
             label 'nodejs'
         }
     }
-
+parameters {
+    booleanParam(name: "Run_FRONTEND_TESTS", defaultValue:true)
+}
     stages {
         stage('Run Tests') {
             parallel {
