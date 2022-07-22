@@ -5,7 +5,7 @@ pipeline {
         }
     }
 parameters {
-    booleanParam(name: "Run_FRONTEND_TESTS", defaultValue:true)
+    booleanParam(name: "Run_FRONTEND_TESTS", defaultValue: true)
 }
     stages {
         stage('Run Tests') {
@@ -22,8 +22,17 @@ parameters {
                     }
                 }
             }
+        stage('Deploy') {
+            when {
+                expression { env.GIT_BRANCH == 'origin/main' }
+            }
+            steps {
+                echo 'Deploying...'
+            }
+            }
+            
+            }
         }
     }
-}
 
     
